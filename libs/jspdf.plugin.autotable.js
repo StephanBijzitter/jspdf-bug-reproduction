@@ -1,11 +1,11 @@
 /*!
- * 
+ *
  *             jsPDF AutoTable plugin v3.4.3
- *             
+ *
  *             Copyright (c) 2020 Simon Bengtsson, https://github.com/simonbengtsson/jsPDF-AutoTable
  *             Licensed under the MIT License.
  *             http://opensource.org/licenses/mit-license
- *         
+ *
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -16,7 +16,7 @@
 		var a = typeof exports === 'object' ? factory((function webpackLoadOptionalExternalModule() { try { return require("jspdf"); } catch(e) {} }())) : factory(root["jsPDF"]);
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
-})(this, function(__WEBPACK_EXTERNAL_MODULE__16__) {
+})(typeof this !== 'undefined' ? this : window, function(__WEBPACK_EXTERNAL_MODULE__16__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -291,7 +291,7 @@ function applyStyles(styles, fontOnly) {
         lineColor: doc.setDrawColor,
         lineWidth: doc.setLineWidth,
     };
-    var styleModifiers = __assign({ 
+    var styleModifiers = __assign({
         // Font style needs to be applied before font
         // https://github.com/simonbengtsson/jsPDF-AutoTable/issues/632
         fontStyle: doc.setFontStyle, font: doc.setFont, fontSize: doc.setFontSize }, (fontOnly ? {} : nonFontModifiers));
