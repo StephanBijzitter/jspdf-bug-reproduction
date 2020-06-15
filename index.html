@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <button id="clicker">Click me</button>
+    <script type="module">
+        // Start loading the libraries as soon as possible
+        const jspdfImport = import('/libs/jspdf.min.js')
+            .then(() => {
+                // This should log the jsPDF object, and it does
+                console.log('jsPDF should exist on window', window.jsPDF);
+
+                // Since window.jsPDF is present, we expect this import to work, but instead it errors out
+                return import('/libs/jspdf.plugin.autotable.js');
+            });
+
+        document.getElementById('clicker').addEventListener('click', async () => {
+            // Make sure to wait for the libraries to be loaded, before using them
+            await jspdfImport;
+
+            // Not logged, the import has failed
+            console.log('Do something with jsPDF', window.jsPDF);
+        });
+    </script>
+</body>
+</html>
